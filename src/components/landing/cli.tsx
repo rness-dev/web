@@ -11,13 +11,16 @@ import { Container } from "@/components/landing/section";
 import { cn } from "@/lib/utils";
 
 const commands = [
-  { command: "rness init", description: "Initialize an organization" },
-  { command: "rness status", description: "Governance status" },
-  { command: "rness context", description: "Resolved context" },
-  { command: "rness rules", description: "Applicable rules" },
-  { command: "rness decisions", description: "Applicable decisions" },
+  { command: "rness create", description: "Create or join an organization" },
+  { command: "rness add", description: "Add a repository to the workspace" },
   { command: "rness sync", description: "Sync organizational governance" },
-  { command: "rness doctor", description: "Diagnose drift" },
+  { command: "rness context", description: "Resolved context" },
+  {
+    command: "rness validate",
+    description: "Check the context and its blocks",
+  },
+  { command: "rness upgrade", description: "Move to a new CLI version" },
+  { command: "rness login", description: "Reach private repositories" },
 ];
 
 const summary = [
