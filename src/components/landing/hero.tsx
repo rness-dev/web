@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Node, NodeConnector, NodeRail } from "@/components/ui/node";
 import { Heading, Label, Lede } from "@/components/ui/typography";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/landing/icons";
+import { InstallCommand } from "@/components/landing/install-command";
 import { Container, GridBackdrop } from "@/components/landing/section";
 import { externalLink, links } from "@/lib/links";
 
@@ -62,6 +63,8 @@ export function Hero() {
             <ArrowUpRightIcon />
           </ButtonLink>
         </div>
+
+        <InstallCommand />
 
         <p className="font-mono text-[12.5px] text-subtle">
           No new agent. No new workflow. No new configuration format.

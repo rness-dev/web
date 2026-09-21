@@ -1,6 +1,7 @@
 import { ButtonLink } from "@/components/ui/button";
 import { Heading, Lede } from "@/components/ui/typography";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/landing/icons";
+import { InstallCommand } from "@/components/landing/install-command";
 import { Container, GridBackdrop } from "@/components/landing/section";
 import { externalLink, links } from "@/lib/links";
 
@@ -42,6 +43,8 @@ export function Cta() {
             <ArrowUpRightIcon />
           </ButtonLink>
         </div>
+
+        <InstallCommand />
 
         <p className="mt-4 font-mono text-[13px] text-bright">
           Agents execute. Your organization governs.
