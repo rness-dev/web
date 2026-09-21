@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils"
 /*
  * The design's tag: a 22px monospaced chip used for statuses, scopes and
  * document identifiers. `brand` marks anything Rness governs, `warn` marks
- * drift, `neutral` is unemphasised metadata.
+ * drift, `neutral` is unemphasised metadata, `target` marks what the page
+ * shows and the product does not do yet.
  */
 const badgeVariants = cva(
   "group/badge inline-flex h-[22px] w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-sm border border-transparent px-2 font-mono text-[11px] font-medium tracking-[0.02em] whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&>svg]:pointer-events-none [&>svg]:size-3!",
@@ -17,6 +18,9 @@ const badgeVariants = cva(
         brand: "bg-brand/10 text-brand",
         warn: "bg-warn-surface text-warn",
         neutral: "bg-hairline text-muted-foreground",
+        // Shown on the page, not in the product yet (ADR 0009, condition 1).
+        // Dashed and unfilled: it must not read as a status the product gives.
+        target: "border-dashed border-control-hover text-bright",
         default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
         secondary:
           "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",

@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { NotShipped } from "@/components/ui/not-shipped"
 
 /*
  * The page runs on four heading sizes and three supporting text styles. The
@@ -46,16 +47,29 @@ function Heading({
 }
 
 /* The numbered section marker, e.g. "03 — Cross-repository governance". */
-function Eyebrow({ className, ...props }: React.ComponentProps<"div">) {
+/*
+ * `status="not-shipped"` marks the whole section as ahead of the product
+ * (ADR 0009, condition 1): marking is a prop, never a copy edit.
+ */
+function Eyebrow({
+  className,
+  status,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & { status?: "not-shipped" }) {
   return (
     <div
       data-slot="eyebrow"
       className={cn(
         "font-mono text-xs font-medium tracking-[0.08em] text-brand uppercase",
+        status !== undefined && "flex flex-wrap items-center gap-x-3 gap-y-2",
         className
       )}
       {...props}
-    />
+    >
+      {status === undefined ? children : <span>{children}</span>}
+      {status === "not-shipped" ? <NotShipped /> : null}
+    </div>
   )
 }
 

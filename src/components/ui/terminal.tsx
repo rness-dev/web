@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Card } from "@/components/ui/card"
+import { NotShipped } from "@/components/ui/not-shipped"
 
 /*
  * The window frame the design uses for shell sessions, file trees and record
@@ -15,9 +16,14 @@ function Terminal({ className, ...props }: React.ComponentProps<typeof Card>) {
 function TerminalBar({
   className,
   title,
+  status,
   children,
   ...props
-}: React.ComponentProps<"div"> & { title?: string }) {
+}: React.ComponentProps<"div"> & {
+  title?: string
+  /** The screen below shows something the CLI does not do yet. */
+  status?: "not-shipped"
+}) {
   return (
     <div
       data-slot="terminal-bar"
@@ -35,6 +41,7 @@ function TerminalBar({
               {title}
             </span>
           ) : null}
+          {status === "not-shipped" ? <NotShipped className="ml-auto" /> : null}
         </>
       )}
     </div>
