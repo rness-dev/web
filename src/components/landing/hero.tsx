@@ -5,6 +5,7 @@ import { Node, NodeConnector, NodeRail } from "@/components/ui/node";
 import { Heading, Label, Lede } from "@/components/ui/typography";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/landing/icons";
 import { Container, GridBackdrop } from "@/components/landing/section";
+import { externalLink, links } from "@/lib/links";
 
 const branches = [
   { repository: "app1", agent: "Claude Code" },
@@ -51,7 +52,12 @@ export function Hero() {
             Get started
             <ArrowRightIcon />
           </ButtonLink>
-          <ButtonLink size="lg" variant="outline" href="#">
+          <ButtonLink
+            size="lg"
+            variant="outline"
+            href={links.github}
+            {...externalLink}
+          >
             View on GitHub
             <ArrowUpRightIcon />
           </ButtonLink>

@@ -1,13 +1,14 @@
 import { LogoMark } from "@/components/logo-mark";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/landing/section";
+import { externalLink, links } from "@/lib/links";
 
 const navLinks = [
-  { label: "Product", href: "#capabilities" },
-  { label: "How it works", href: "#demo" },
-  { label: "CLI", href: "#cli" },
-  { label: "Docs", href: "#" },
-  { label: "GitHub", href: "#" },
+  { label: "Product", href: "#capabilities", external: false },
+  { label: "How it works", href: "#demo", external: false },
+  { label: "CLI", href: "#cli", external: false },
+  { label: "Docs", href: links.docs, external: true },
+  { label: "GitHub", href: links.github, external: true },
 ];
 
 export function SiteHeader() {
@@ -29,6 +30,7 @@ export function SiteHeader() {
             <a
               key={link.label}
               href={link.href}
+              {...(link.external ? externalLink : {})}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -37,12 +39,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a
-            href="#"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            Sign in
-          </a>
           <ButtonLink href="#cta" className="text-sm">
             Get started
           </ButtonLink>

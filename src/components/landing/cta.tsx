@@ -2,6 +2,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Heading, Lede } from "@/components/ui/typography";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/landing/icons";
 import { Container, GridBackdrop } from "@/components/landing/section";
+import { externalLink, links } from "@/lib/links";
 
 export function Cta() {
   return (
@@ -27,11 +28,16 @@ export function Cta() {
         </Lede>
 
         <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-          <ButtonLink size="lg" href="#">
+          <ButtonLink size="lg" href={links.docs} {...externalLink}>
             Get started
             <ArrowRightIcon />
           </ButtonLink>
-          <ButtonLink size="lg" variant="outline" href="#">
+          <ButtonLink
+            size="lg"
+            variant="outline"
+            href={links.github}
+            {...externalLink}
+          >
             View on GitHub
             <ArrowUpRightIcon />
           </ButtonLink>

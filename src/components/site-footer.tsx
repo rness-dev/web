@@ -2,36 +2,41 @@ import { LogoMark } from "@/components/logo-mark";
 import { Label } from "@/components/ui/typography";
 import { ArrowUpIcon } from "@/components/landing/icons";
 import { Container } from "@/components/landing/section";
+import { externalLink, links } from "@/lib/links";
 
 const columns = [
   {
     heading: "Product",
     links: [
-      { label: "Cross-repository governance", href: "#capabilities" },
-      { label: "Cross-agent governance", href: "#capabilities" },
-      { label: "Policy enforcement", href: "#capabilities" },
-      { label: "Drift detection", href: "#drift" },
-      { label: "Decision traceability", href: "#traceability" },
-      { label: "CLI", href: "#cli" },
+      {
+        label: "Cross-repository governance",
+        href: "#capabilities",
+        external: false,
+      },
+      {
+        label: "Cross-agent governance",
+        href: "#capabilities",
+        external: false,
+      },
+      { label: "Policy enforcement", href: "#capabilities", external: false },
+      { label: "Drift detection", href: "#drift", external: false },
+      {
+        label: "Decision traceability",
+        href: "#traceability",
+        external: false,
+      },
+      { label: "CLI", href: "#cli", external: false },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Documentation", href: "#" },
-      { label: "GitHub", href: "#" },
-      { label: "Changelog", href: "#" },
-      { label: "The .rness folder", href: "#architecture" },
-      { label: "Agent governance layer", href: "#category" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "About", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Security", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "Documentation", href: links.docs, external: true },
+      { label: "GitHub", href: links.github, external: true },
+      { label: "npm", href: links.npm, external: true },
+      { label: "Security", href: links.security, external: true },
+      { label: "The .rness folder", href: "#architecture", external: false },
+      { label: "Agent governance layer", href: "#category", external: false },
     ],
   },
 ];
@@ -43,7 +48,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-hairline bg-background">
       <Container className="flex flex-col gap-14 pt-16 pb-10 lg:pt-[72px]">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]">
           <div className="flex flex-col gap-5 lg:pr-10">
             <a
               href="#hero"
@@ -75,7 +80,12 @@ export function SiteFooter() {
                 {column.heading}
               </Label>
               {column.links.map((link) => (
-                <a key={link.label} href={link.href} className={linkClass}>
+                <a
+                  key={link.label}
+                  href={link.href}
+                  {...(link.external ? externalLink : {})}
+                  className={linkClass}
+                >
                   {link.label}
                 </a>
               ))}
@@ -94,15 +104,9 @@ export function SiteFooter() {
             </span>
           </div>
           <nav
-            aria-label="Legal"
+            aria-label="Page"
             className="flex items-center gap-6 text-[13px]"
           >
-            <a href="#" className={linkClass}>
-              Privacy
-            </a>
-            <a href="#" className={linkClass}>
-              Terms
-            </a>
             <a
               href="#hero"
               className={`${linkClass} inline-flex items-center gap-1.5`}
