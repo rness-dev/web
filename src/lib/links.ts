@@ -5,9 +5,9 @@
  */
 export const links = {
   github: "https://github.com/rness-dev/rness",
-  // The docs site (rness-dev/docs) is not deployed yet; until it is, the CLI
-  // README is the documentation. Becomes "/docs" with that deployment.
-  docs: "https://github.com/rness-dev/rness/tree/main/packages/cli#readme",
+  // Deployed on 2026-09-22. Becomes "https://rness.dev/docs" once the domain
+  // is configured. No trailing slash: "/docs/" answers 404 there.
+  docs: "https://rness-docs.vercel.app/docs",
   npm: "https://www.npmjs.com/package/@rness/cli",
   security: "https://github.com/rness-dev/.github/blob/main/SECURITY.md",
 } as const;
