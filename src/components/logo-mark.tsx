@@ -1,27 +1,53 @@
-export function LogoMark({ className }: { className?: string }) {
+import { cn } from "@/lib/utils";
+
+/*
+ * Three stacked bars with the middle one carrying the brand colour: the
+ * governance layer sitting between the agents above and the code below.
+ * `tone="current"` lets the mark inherit the surrounding text colour, which is
+ * how it is drawn inside a brand-coloured node.
+ */
+export function LogoMark({
+  className,
+  tone = "default",
+}: {
+  className?: string;
+  tone?: "default" | "brand" | "current";
+}) {
+  const outer =
+    tone === "default"
+      ? "#52525b"
+      : tone === "brand"
+        ? "var(--brand)"
+        : "currentColor";
+  const middle = tone === "current" ? "currentColor" : "var(--brand)";
+  const outerOpacity = tone === "default" ? undefined : 0.4;
+
   return (
     <svg
-      viewBox="0 0 28 28"
+      viewBox="0 0 22 22"
       fill="none"
-      className={className}
+      className={cn("shrink-0", className)}
       aria-hidden="true"
     >
-      <line x1="14" y1="14" x2="5" y2="5" stroke="#57a99a" strokeWidth="1.4" />
-      <line x1="14" y1="14" x2="23" y2="5" stroke="#57a99a" strokeWidth="1.4" />
-      <line x1="14" y1="14" x2="5" y2="23" stroke="#57a99a" strokeWidth="1.4" />
       <rect
-        x="9"
-        y="9"
-        width="10"
-        height="10"
-        rx="2"
-        fill="#14171a"
-        stroke="#f2f3f4"
-        strokeWidth="1.4"
+        x="3"
+        y="3.5"
+        width="16"
+        height="3"
+        rx="1.5"
+        fill={outer}
+        opacity={outerOpacity}
       />
-      <circle cx="5" cy="5" r="2.6" fill="#0c0e10" stroke="#57a99a" strokeWidth="1.4" />
-      <circle cx="23" cy="5" r="2.6" fill="#0c0e10" stroke="#57a99a" strokeWidth="1.4" />
-      <circle cx="5" cy="23" r="2.6" fill="#0c0e10" stroke="#57a99a" strokeWidth="1.4" />
+      <rect x="3" y="9.5" width="16" height="3" rx="1.5" fill={middle} />
+      <rect
+        x="3"
+        y="15.5"
+        width="16"
+        height="3"
+        rx="1.5"
+        fill={outer}
+        opacity={outerOpacity}
+      />
     </svg>
   );
 }

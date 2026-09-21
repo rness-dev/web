@@ -1,7 +1,7 @@
 # rness workspace member — scope: web
 
 <!-- BEGIN rness -->
-<!-- rness 0.3.0 · scope: web · contract: 1 · hash: 3b81d703882c · generated: run `rness sync`, never edit inside this block -->
+<!-- rness 0.4.0 · scope: web · contract: 1 · hash: 3b81d703882c · generated: run `rness sync`, never edit inside this block -->
 This directory is scope `web` of rness workspace `rness-dev`. Full context lives in
 `../../.rness/` — read `STATUS.md`, then task-relevant `adr/`, `specs/`, `plans/`;
 live: `rness context --scope web`. If `.rness/` is not reachable, this is a
