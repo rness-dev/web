@@ -36,7 +36,7 @@ export function Demo() {
     <Section id="demo">
       <Container className="flex flex-col items-center gap-12">
         <div className="flex flex-col items-center gap-5 text-center">
-          <Eyebrow>09 — Product in action</Eyebrow>
+          <Eyebrow status="not-shipped">09 — Product in action</Eyebrow>
           <Heading>See Rness in action</Heading>
           <Lede className="max-w-[640px]">
             A developer opens a repository and starts their agent — exactly as

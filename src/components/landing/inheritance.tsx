@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { NotShipped } from "@/components/ui/not-shipped";
 import { Card } from "@/components/ui/card";
 import { NodeConnector } from "@/components/ui/node";
 import { Eyebrow, Heading, Label, Lede } from "@/components/ui/typography";
@@ -35,6 +36,8 @@ const levels = [
     indent: "sm:ml-30",
     tags: [{ label: "*.sol", variant: "brand" as const }],
     highlight: true,
+    // Scopes are directory prefixes today: no file or pattern level.
+    shipped: false,
   },
 ];
 
@@ -69,9 +72,12 @@ export function Inheritance() {
                         : "border-control bg-surface-raised"
                     )}
                   >
-                    <Label tone={level.highlight ? "brand" : "bright"}>
-                      {level.scope}
-                    </Label>
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <Label tone={level.highlight ? "brand" : "bright"}>
+                        {level.scope}
+                      </Label>
+                      {level.shipped === false ? <NotShipped /> : null}
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {level.tags.map((tag) => (
                         <Badge key={tag.label} variant={tag.variant}>

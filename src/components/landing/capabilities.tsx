@@ -303,7 +303,7 @@ export function Capabilities() {
       </CapabilityRow>
 
       <CapabilityRow reverse media={<PolicyMedia />}>
-        <Eyebrow>06 — Policy enforcement</Eyebrow>
+        <Eyebrow status="not-shipped">06 — Policy enforcement</Eyebrow>
         <Heading as="h3" size="sub">
           Turn engineering standards into organizational policy.
         </Heading>

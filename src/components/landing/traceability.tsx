@@ -46,7 +46,9 @@ export function Traceability() {
     <Section id="traceability">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-5">
-          <Eyebrow>14 — Decision traceability</Eyebrow>
+          <Eyebrow status="not-shipped">
+            14 — Decision traceability
+          </Eyebrow>
           <Heading className="max-w-[760px]">
             Know why an agent made a change.
           </Heading>

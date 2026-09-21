@@ -116,7 +116,7 @@ export function Drift() {
             </Card>
           }
         >
-          <Eyebrow>13 — Configuration drift</Eyebrow>
+          <Eyebrow status="not-shipped">13 — Configuration drift</Eyebrow>
           <Heading as="h3" size="sub">
             Know when your repositories drift from organizational policy.
           </Heading>

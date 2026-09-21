@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { NotShipped } from "@/components/ui/not-shipped";
 import { Card } from "@/components/ui/card";
 import {
   Table,
@@ -15,18 +16,25 @@ import { cn } from "@/lib/utils";
 /* "Core" means Rness treats the capability as its job, not as a side effect. */
 type Support = "yes" | "none" | "Limited" | "Partial" | "Core";
 
-const rows: { capability: string; agents: Support; rules: Support; rness: Support }[] = [
+/* `shipped: false` — the page claims it for Rness, the CLI does not do it yet. */
+const rows: {
+  capability: string;
+  agents: Support;
+  rules: Support;
+  rness: Support;
+  shipped?: false;
+}[] = [
   { capability: "Execute coding tasks", agents: "yes", rules: "none", rness: "none" },
   { capability: "Repository instructions", agents: "yes", rules: "yes", rness: "yes" },
   { capability: "Cross-repository governance", agents: "Limited", rules: "Limited", rness: "Core" },
   { capability: "Cross-agent governance", agents: "Limited", rules: "Limited", rness: "Core" },
   { capability: "Organization-wide context", agents: "Limited", rules: "Limited", rness: "Core" },
-  { capability: "Policy enforcement", agents: "Limited", rules: "Partial", rness: "Core" },
+  { capability: "Policy enforcement", agents: "Limited", rules: "Partial", rness: "Core", shipped: false },
   { capability: "ADR / architecture memory", agents: "Partial", rules: "Partial", rness: "Core" },
-  { capability: "Decision traceability", agents: "Limited", rules: "none", rness: "Core" },
+  { capability: "Decision traceability", agents: "Limited", rules: "none", rness: "Core", shipped: false },
   { capability: "Context inheritance", agents: "Partial", rules: "Partial", rness: "Core" },
   { capability: "Configuration drift", agents: "Limited", rules: "Partial", rness: "Core" },
-  { capability: "Agent auditability", agents: "Limited", rules: "none", rness: "Core" },
+  { capability: "Agent auditability", agents: "Limited", rules: "none", rness: "Core", shipped: false },
 ];
 
 function SupportCell({ value }: { value: Support }) {
@@ -104,7 +112,10 @@ export function Category() {
                     <SupportCell value={row.rules} />
                   </TableCell>
                   <TableCell className={cn(cellClass, "bg-brand/3")}>
-                    <SupportCell value={row.rness} />
+                    <span className="flex items-center gap-2 whitespace-nowrap">
+                      <SupportCell value={row.rness} />
+                      {row.shipped === false ? <NotShipped /> : null}
+                    </span>
                   </TableCell>
                 </TableRow>
               ))}

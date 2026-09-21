@@ -73,7 +73,7 @@ export function Cli() {
         </div>
 
         <Terminal>
-          <TerminalBar title="acme — zsh" />
+          <TerminalBar title="acme — zsh" status="not-shipped" />
           <TerminalBody className="overflow-x-auto px-7 pt-6 pb-7">
             <TerminalLine>
               <TerminalPrompt />
