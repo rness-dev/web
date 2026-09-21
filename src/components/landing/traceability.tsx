@@ -26,7 +26,7 @@ const record = [
     label: "Relevant governance",
     value: (
       <div className="flex flex-wrap gap-2">
-        {["ADR-031", "SPEC-012", "SEC-004"].map((id) => (
+        {["adr/0031", "specs/0012", "standards/security"].map((id) => (
           <Badge key={id} variant="brand">
             {id}
           </Badge>

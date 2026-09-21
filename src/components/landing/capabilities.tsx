@@ -46,11 +46,11 @@ function CrossRepositoryMedia() {
       <div className="flex flex-col border-t border-hairline bg-background px-6 pt-[18px] pb-[22px]">
         <TerminalLine>
           <TerminalPrompt />
-          rness org/app1
+          rness context --scope app1
         </TerminalLine>
         <TerminalLine>
           <TerminalPrompt />
-          rness org/app2
+          rness context --scope app2
         </TerminalLine>
         <TerminalLine className="mt-2 text-muted-foreground">
           Same organizational context. Different repository.
@@ -186,9 +186,9 @@ function PolicyMedia() {
 }
 
 const decisions = [
-  { id: "ADR-001", title: "PostgreSQL is the primary database", scope: "Organization" },
-  { id: "ADR-014", title: "GraphQL is the public API", scope: "app1" },
-  { id: "ADR-021", title: "Use viem for EVM interaction", scope: "contracts" },
+  { id: "adr/0001", title: "PostgreSQL is the primary database", scope: "Organization" },
+  { id: "adr/0014", title: "GraphQL is the public API", scope: "app1" },
+  { id: "adr/0021", title: "Use viem for EVM interaction", scope: "contracts" },
 ];
 
 function DecisionsMedia() {
@@ -224,9 +224,9 @@ function DecisionsMedia() {
 const planningChain = ["Product", "Spec", "Plan", "Implementation"];
 
 const planningDocuments = [
-  { id: "SPEC-012", title: "Unified lending API" },
-  { id: "PLAN-027", title: "Implement Morpho adapter" },
-  { id: "ADR-031", title: "Standardize market identifiers" },
+  { id: "specs/0012", title: "Unified lending API" },
+  { id: "plans/0027", title: "Implement Morpho adapter" },
+  { id: "adr/0031", title: "Standardize market identifiers" },
 ];
 
 function PlanningMedia() {

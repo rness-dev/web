@@ -19,8 +19,8 @@ const applicable = [
   "Security standards",
   "Engineering standards",
   "Architecture principles",
-  "ADR-014",
-  "PLAN-027",
+  "adr/0014",
+  "plans/0027",
 ];
 
 const resolved = [

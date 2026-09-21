@@ -11,13 +11,11 @@ import { cn } from "@/lib/utils";
 const repositories = ["app1/", "app2/", "app3/", "sdk/", "contracts/"];
 
 const folders = [
-  { path: "context/", description: "Organizational context" },
-  { path: "rules/", description: "Engineering rules and standards" },
-  { path: "security/", description: "Security policies" },
-  { path: "architecture/", description: "Architecture principles" },
-  { path: "decisions/", description: "ADRs" },
+  { path: "standards/", description: "Rules and standards, by scope" },
+  { path: "adr/", description: "Architecture decisions" },
   { path: "specs/", description: "Specifications" },
   { path: "plans/", description: "Plans" },
+  { path: "skills/", description: "Reusable agent skills" },
 ];
 
 export function Architecture() {
