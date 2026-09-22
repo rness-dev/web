@@ -29,7 +29,7 @@ export function Cta() {
         </Lede>
 
         <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-          <ButtonLink size="lg" href={links.docs} {...externalLink}>
+          <ButtonLink size="lg" href={links.docs}>
             Get started
             <ArrowRightIcon />
           </ButtonLink>

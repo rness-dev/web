@@ -31,7 +31,7 @@ const columns = [
   {
     heading: "Resources",
     links: [
-      { label: "Documentation", href: links.docs, external: true },
+      { label: "Documentation", href: links.docs, external: false },
       { label: "GitHub", href: links.github, external: true },
       { label: "npm", href: links.npm, external: true },
       { label: "Security", href: links.security, external: true },

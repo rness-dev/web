@@ -5,9 +5,9 @@
  */
 export const links = {
   github: "https://github.com/rness-dev/rness",
-  // Deployed on 2026-09-22. Becomes "https://rness.dev/docs" once the domain
-  // is configured. This is the canonical form; "/docs/" redirects to it.
-  docs: "https://rness-docs.vercel.app/docs",
+  // Served by the docs deployment through the rewrite in next.config.ts:
+  // same domain, no new tab. "/docs" is the canonical form.
+  docs: "/docs",
   npm: "https://www.npmjs.com/package/@rness/cli",
   security: "https://github.com/rness-dev/.github/blob/main/SECURITY.md",
 } as const;

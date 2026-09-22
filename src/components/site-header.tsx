@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Product", href: "#capabilities", external: false },
   { label: "How it works", href: "#demo", external: false },
   { label: "CLI", href: "#cli", external: false },
-  { label: "Docs", href: links.docs, external: true },
+  { label: "Docs", href: links.docs, external: false },
   { label: "GitHub", href: links.github, external: true },
 ];
 
