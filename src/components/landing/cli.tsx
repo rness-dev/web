@@ -23,20 +23,39 @@ const commands = [
   { command: "rness login", description: "Reach private repositories" },
 ];
 
-const summary = [
-  { label: "Organization", value: "acme" },
-  { label: "Repositories", value: "24" },
-  { label: "Agents", value: "4" },
+/*
+ * A session of @rness/cli 0.5.3, verbatim, on a workspace where someone edited
+ * app3's block by hand: `--check` finds it, `sync` rewrites it. Statuses are
+ * padded to eight columns, as the CLI prints them.
+ */
+const check = [
+  { status: "unchanged", file: "AGENTS.md" },
+  { status: "unchanged", file: "org/app1/AGENTS.md" },
+  { status: "unchanged", file: "org/app2/AGENTS.md" },
+  { status: "stale", file: "org/app3/AGENTS.md" },
 ];
 
-const governance = [
-  "Context",
-  "Standards",
-  "Security",
-  "ADRs",
-  "Specs",
-  "Plans",
+const sync = [
+  { status: "unchanged", file: "AGENTS.md" },
+  { status: "unchanged", file: "org/app1/AGENTS.md" },
+  { status: "unchanged", file: "org/app2/AGENTS.md" },
+  { status: "updated", file: "org/app3/AGENTS.md" },
 ];
+
+const tone: Record<string, string> = {
+  stale: "text-warn",
+  updated: "text-brand",
+  unchanged: "text-muted-foreground",
+};
+
+function Output({ rows }: { rows: { status: string; file: string }[] }) {
+  return rows.map((row) => (
+    <TerminalLine key={row.file}>
+      <span className={tone[row.status]}>{`${row.status.padEnd(8)} `}</span>
+      {row.file}
+    </TerminalLine>
+  ));
+}
 
 export function Cli() {
   return (
@@ -73,38 +92,22 @@ export function Cli() {
         </div>
 
         <Terminal>
-          <TerminalBar title="acme — zsh" status="not-shipped" />
+          <TerminalBar title="acme — zsh" />
           <TerminalBody className="overflow-x-auto px-7 pt-6 pb-7">
             <TerminalLine>
               <TerminalPrompt />
-              rness status
+              rness sync --check
+            </TerminalLine>
+            <Output rows={check} />
+            <TerminalLine className="text-warn">
+              1 block(s) out of date — run rness sync
             </TerminalLine>
             <TerminalGap />
-            {summary.map((row) => (
-              <TerminalLine key={row.label}>
-                <span className="inline-block w-[16ch] text-muted-foreground">
-                  {row.label}
-                </span>
-                {row.value}
-              </TerminalLine>
-            ))}
-            <TerminalGap />
-            <TerminalLine className="text-muted-foreground">
-              Governance
-            </TerminalLine>
-            {governance.map((item) => (
-              <TerminalLine key={item}>
-                <span className="inline-block w-[16ch]">{`  ${item}`}</span>
-                <span className="text-brand">✓</span>
-              </TerminalLine>
-            ))}
-            <TerminalGap />
-            <TerminalLine className="text-warn">Drift detected</TerminalLine>
             <TerminalLine>
-              {"  app3"}
-              <span className="text-dim">{" / "}</span>
-              security policy
+              <TerminalPrompt />
+              rness sync -y
             </TerminalLine>
+            <Output rows={sync} />
           </TerminalBody>
         </Terminal>
       </Container>
