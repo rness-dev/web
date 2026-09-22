@@ -23,7 +23,7 @@ export function Architecture() {
     <Section id="architecture">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-5">
-          <Eyebrow>15 — Product architecture</Eyebrow>
+          <Eyebrow>14 — Product architecture</Eyebrow>
           <Heading className="max-w-[860px]">
             <span className="font-mono tracking-[-0.01em]">.rness</span> — the
             organization-level source of truth.

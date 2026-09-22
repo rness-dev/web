@@ -20,11 +20,6 @@ const columns = [
       },
       { label: "Policy enforcement", href: "#capabilities", external: false },
       { label: "Drift detection", href: "#drift", external: false },
-      {
-        label: "Decision traceability",
-        href: "#traceability",
-        external: false,
-      },
       { label: "CLI", href: "#cli", external: false },
     ],
   },

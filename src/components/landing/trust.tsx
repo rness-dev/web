@@ -44,7 +44,7 @@ export function Trust() {
     <Section id="trust">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-5">
-          <Eyebrow>18 — Trust &amp; architecture</Eyebrow>
+          <Eyebrow>17 — Trust &amp; architecture</Eyebrow>
           <Heading className="max-w-[900px]">
             Your repositories remain the source of code. Rness becomes the
             source of organizational agent knowledge.

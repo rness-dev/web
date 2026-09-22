@@ -25,7 +25,7 @@ export function Workflow() {
     <Section id="workflow">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-5">
-          <Eyebrow>16 — Developer workflow</Eyebrow>
+          <Eyebrow>15 — Developer workflow</Eyebrow>
           <Heading className="max-w-[760px]">
             Nothing changes for developers.
           </Heading>

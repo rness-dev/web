@@ -44,7 +44,7 @@ export function Cli() {
       <Container className="grid items-start gap-12 py-20 lg:grid-cols-[5fr_7fr] lg:gap-[72px] lg:py-[120px]">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-5">
-            <Eyebrow>17 — CLI</Eyebrow>
+            <Eyebrow>16 — CLI</Eyebrow>
             <Heading as="h3" size="sub">
               Governance you can run from the terminal.
             </Heading>

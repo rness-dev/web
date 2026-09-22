@@ -10,7 +10,6 @@ import { BeforeAfter } from "@/components/landing/before-after";
 import { Category } from "@/components/landing/category";
 import { Inheritance } from "@/components/landing/inheritance";
 import { Drift } from "@/components/landing/drift";
-import { Traceability } from "@/components/landing/traceability";
 import { Architecture } from "@/components/landing/architecture";
 import { Workflow } from "@/components/landing/workflow";
 import { Cli } from "@/components/landing/cli";
@@ -32,7 +31,6 @@ export default function Home() {
         <Category />
         <Inheritance />
         <Drift />
-        <Traceability />
         <Architecture />
         <Workflow />
         <Cli />

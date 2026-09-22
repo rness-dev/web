@@ -31,10 +31,8 @@ const rows: {
   { capability: "Organization-wide context", agents: "Limited", rules: "Limited", rness: "Core" },
   { capability: "Policy enforcement", agents: "Limited", rules: "Partial", rness: "Core", shipped: false },
   { capability: "ADR / architecture memory", agents: "Partial", rules: "Partial", rness: "Core" },
-  { capability: "Decision traceability", agents: "Limited", rules: "none", rness: "Core", shipped: false },
   { capability: "Context inheritance", agents: "Partial", rules: "Partial", rness: "Core" },
   { capability: "Configuration drift", agents: "Limited", rules: "Partial", rness: "Core" },
-  { capability: "Agent auditability", agents: "Limited", rules: "none", rness: "Core", shipped: false },
 ];
 
 function SupportCell({ value }: { value: Support }) {
